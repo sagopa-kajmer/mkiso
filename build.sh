@@ -2,19 +2,18 @@
 umask 022
 set -e
 if [[ ! -d build ]] ; then
-    # fetch & extract rootfs
-    mkdir -p build
-    cd build
-    uri="https://dl-cdn.alpinelinux.org/alpine/edge/releases/$(uname -m)/"
-    tarball=$(wget -O - "$uri" |grep "alpine-minirootfs" | grep "tar.gz<" | \
-        sort -V | tail -n 1 | cut -f2 -d"\"")
-    wget -O "$tarball" "$uri/$tarball"
-    mkdir -p chroot
-    cd chroot
-    tar -xvf ../*$tarball
-else
-    cd build/chroot
+    rm -rf build
 fi
+# fetch & extract rootfs
+mkdir -p build
+cd build
+uri="https://dl-cdn.alpinelinux.org/alpine/edge/releases/$(uname -m)/"
+tarball=$(wget -O - "$uri" |grep "alpine-minirootfs" | grep "tar.gz<" | \
+    sort -V | tail -n 1 | cut -f2 -d"\"")
+wget -O "$tarball" "$uri/$tarball"
+mkdir -p chroot
+cd chroot
+tar -xvf ../*$tarball
 # fix resolv.conf
 install /etc/resolv.conf ./etc/resolv.conf
 # add repositories
