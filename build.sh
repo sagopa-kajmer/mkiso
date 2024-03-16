@@ -24,6 +24,7 @@ https://dl-cdn.alpinelinux.org/alpine/edge/testing
 EOF
 # upgrade if needed
 chroot ./ apk upgrade
+# hooks
 cd ../../hooks
 for file in $(ls . | sort -V) ; do
     echo "Executing: $file"
@@ -33,6 +34,8 @@ done
 if [[ -d ../build/isowork ]] ; then
     rm -rf ../build/isowork
 fi
+# copy rootfs files
+cp -rf ../airootfs/* ../build/chroot/
 mkdir -p ../build/isowork/live
 cd ../build/isowork
 # copy kernel
