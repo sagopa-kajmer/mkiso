@@ -51,7 +51,7 @@ cat > boot/grub/grub.cfg <<EOF
 insmod all_video
 terminal_output console
 terminal_input console
-menuentry Sagopa Kajmer Linux {
+menuentry "Sagopa Kajmer Linux" {
     linux /vmlinuz-edge quiet boot=live
     initrd /initramfs-live
 }
