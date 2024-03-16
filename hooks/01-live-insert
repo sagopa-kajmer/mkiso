@@ -1,0 +1,13 @@
+#!/bin/sh
+apk add linux-edge linux-firmware-none
+mkdir -p /usr/share/mkinitfs/ /etc/mkinitfs/
+apk add bash ca-certificates eudev mkinitfs
+echo 'features="ata base cdrom ext4 keymap kms lvm mmc nvme raid scsi squashfs usb virtio"' > /etc/mkinitfs/mkinitfs-live.conf
+wget -O /usr/share/mkinitfs/initramfs-init-live "https://gitlab.com/tearch-linux/applications-and-tools/teaiso/-/raw/master/src/misc/alpine-init.sh"
+# create new initrd
+for kernel in $(ls /lib/modules) ; do
+    mkinitfs -C gzip -i /usr/share/mkinitfs/initramfs-init-live -c /etc/mkinitfs/mkinitfs-live.conf -o /boot/initramfs-live "$kernel"
+done
+# install firmware now
+apk del linux-firmware-none
+apk add linux-firmware
