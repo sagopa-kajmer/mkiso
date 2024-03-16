@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: "0 0 * * 5"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: |
+          sudo apt install xorriso grub-pc-bin grub-efi mtools \
+              dosfstools e2fsprogs squashfs-tools \
+              gcc wget curl unzip xz-utils zstd -y
+          sudo bash build.sh
+          sudo mkdir -p /output/
+          sudo mv build/alpine.iso /output/sagopa-kajmer-$(date +%s)-$(uname -m).iso
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Auto build"
+          files: |
+            /output/*
+
