@@ -16,6 +16,5 @@ apk add linux-firmware
 apk add openrc
 rc-update add udev
 rc-update add hostname
-echo -e "live\nlive\n" | passwd root
 # remove login message
 > /etc/motd

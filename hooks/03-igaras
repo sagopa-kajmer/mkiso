@@ -1,0 +1,12 @@
+#!/bin/sh
+cat > /etc/os-release << EOF
+PRETTY_NAME="Sagopa Kajmer Linux"
+NAME="Sagopa Kajmer"
+VERSION_ID="31"
+VERSION="31 (igaras)"
+VERSION_CODENAME=igaras
+ID=igaras
+EOF
+echo "kajmer" > /etc/hostname
+echo -e "igaras\nigaras\n" | passwd root
+echo -e "igaras\nigaras\n" | adduser sagopa
