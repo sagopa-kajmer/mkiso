@@ -9,4 +9,3 @@ ID=igaras
 EOF
 echo "kajmer" > /etc/hostname
 echo -e "igaras\nigaras\n" | passwd root
-echo -e "igaras\nigaras\n" | adduser sagopa
