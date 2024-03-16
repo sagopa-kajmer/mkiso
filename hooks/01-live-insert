@@ -11,3 +11,10 @@ done
 # install firmware now
 apk del linux-firmware-none
 apk add linux-firmware
+# install openrc
+apk add openrc
+rc-update add udev
+rc-update add hostname
+echo -e "live\nlive\n" | passwd root
+# remove login message
+> /etc/motd
