@@ -1,0 +1,8 @@
+#!/bin/sh
+# laptop stuff
+apk add acpi cpufreqd pm-utils
+rc-update add cpufreqd
+# gcompat
+apk add libstdc++ gcompat
+# grub stuff
+apk add grub grub-efi efibootmgr grub-bios grub-mount os-prober e2fsprogs
