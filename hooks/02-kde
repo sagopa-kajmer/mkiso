@@ -7,7 +7,7 @@ apk add xorg-server xf86-input-libinput eudev mesa-dri-gallium
 apk add plasma-desktop systemsettings sddm breeze
 apk add ark dolphin konsole spectacle
 # apps
-apk add nano konqueror ca-certificates
+apk add nano chromium ca-certificates
 # logind and other stuff
 apk add elogind polkit-elogind dbus wpa_supplicant networkmanager \
     bluez networkmanager-wifi networkmanager-tui librsvg fuse
