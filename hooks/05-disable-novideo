@@ -1,5 +1,5 @@
 #!/bin/sh
 wget -O /usr/libexec/disable-secondary-gpu https://gitlab.com/turkman/packages/main/-/raw/master/sys/apps/openrc/extras/disable-secondary-gpu.sh
 wget -O /etc/init.d/disable-secondary-gpu https://gitlab.com/turkman/packages/main/-/raw/master/sys/apps/openrc/extras/disable-secondary-gpu.initd
-chmod +x /usr/libexec/disable-secondary-gpu
+chmod +x /usr/libexec/disable-secondary-gpu /etc/init.d/disable-secondary-gpu
 rc-update add disable-secondary-gpu
