@@ -16,7 +16,7 @@ sed -i "s/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/g" /etc/default/grub
 mkdir -p /etc/sysconf.d
 cat > /etc/sysconf.d/installer <<EOF
 #!/bin/bash
-for dir in $(ls /lib/modules) ; do
-    mkinitfs $dir
+for dir in $(ls /target/lib/modules) ; do
+    chroot /target mkinitfs $dir
 done
 EOF
