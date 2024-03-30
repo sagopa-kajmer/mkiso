@@ -5,4 +5,6 @@ rc-update add cpufreqd
 # gcompat
 apk add libstdc++ gcompat
 # grub stuff
+# disable grub trigger.
+echo disable_trigger=1 >> /etc/update-grub.conf
 apk add grub grub-efi efibootmgr grub-bios grub-mount os-prober e2fsprogs
