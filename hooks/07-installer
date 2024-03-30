@@ -1,9 +1,10 @@
 #!/bin/bash
 set -ex
-apk add parted dialog
+apk add parted dialog coreutils
 # install turkman linux installer
 rm -f /sbin/init
 wget https://gitlab.com/turkman/devel/sources/installer/-/raw/master/main.sh -O /sbin/init
+chmod 755 /sbin/init
 sed -i "s|/sbin/openrc-init|/bin/busybox init|g" /sbin/init
 sed -i "s|openrc-init|busybox|g" /sbin/init
 # change default username
