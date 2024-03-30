@@ -1,6 +1,6 @@
 #!/bin/bash
 set -ex
-apk add parted dialog coreutils
+apk add parted dialog coreutils cfdisk
 # install turkman linux installer
 rm -f /sbin/init
 wget https://gitlab.com/turkman/devel/sources/installer/-/raw/master/main.sh -O /sbin/init
