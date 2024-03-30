@@ -35,7 +35,7 @@ if [[ -d ../build/isowork ]] ; then
     rm -rf ../build/isowork
 fi
 # copy rootfs files
-cp -rf ../airootfs/* ../build/chroot/
+cp -rf ../airootfs/* ../build/chroot/ || true
 mkdir -p ../build/isowork/live
 cd ../build/isowork
 # copy kernel
