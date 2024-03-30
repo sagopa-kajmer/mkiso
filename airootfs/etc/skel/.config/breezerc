@@ -1,9 +1,0 @@
-[Common]
-OutlineCloseButton=true
-
-[Style]
-MenuOpacity=80
-
-[Windeco]
-ButtonSize=ButtonLarge
-TitleAlignment=AlignLeft

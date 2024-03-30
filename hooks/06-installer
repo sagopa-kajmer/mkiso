@@ -1,0 +1,10 @@
+#!/bin/bash
+set -ex
+rm -f /sbin/init
+apk add parted dialog
+# install turkman linux installer
+wget https://gitlab.com/turkman/devel/sources/installer/-/raw/master/main.sh -O /sbin/init
+sed -i "s|/sbin/openrc-init|/bin/busybox init|g" /sbin/init
+sed -i "s|openrc-init|busybox|g" /sbin/init
+# change default username
+sed -i "s/pingu/sagopa/g"
