@@ -4,8 +4,8 @@ apk upgrade
 # install xorg
 apk add xorg-server xf86-input-libinput eudev mesa-dri-gallium
 # kde
-apk add plasma-desktop systemsettings sddm breeze
-apk add ark dolphin konsole spectacle
+apk add plasma-desktop systemsettings sddm breeze kquickcharts
+apk add ark dolphin konsole spectacle kinfocenter
 # apps
 apk add nano chromium ca-certificates
 # logind and other stuff
